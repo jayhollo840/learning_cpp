@@ -18,7 +18,7 @@ int main(void) {
 	return 0;
 }
 ```
-
+```
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -131,3 +131,4 @@ void resetTaskCounter(HashTable *table, int taskNumber) {
 
     // If the entry doesn't exist, no need to reset.
 }
+```
