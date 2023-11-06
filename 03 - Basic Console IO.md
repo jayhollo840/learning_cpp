@@ -35,6 +35,7 @@ int main(void) {
 }
 
 ```
+```C
 #include <stdint.h>
 
 uint32_t packData(unsigned char oneByte, uint64_t threeBytes) {
