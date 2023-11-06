@@ -33,3 +33,36 @@ int main(void) {
 
 	return 0;
 }
+
+```
+#include <stdint.h>
+
+uint32_t packData(unsigned char oneByte, uint64_t threeBytes) {
+    // Mask the lower 3 bytes of the threeBytes data
+    uint32_t maskedThreeBytes = (uint32_t)(threeBytes & 0xFFFFFF);
+
+    // Shift the oneByte to the left by 24 bits to make room for the 3-byte data
+    uint32_t shiftedOneByte = ((uint32_t)oneByte) << 24;
+
+    // Combine the two parts together
+    uint32_t result = shiftedOneByte | maskedThreeBytes;
+
+    return result;
+}
+
+#include <stdint.h>
+
+uint32_t insertThreeBytes(uint32_t originalValue, uint64_t lowerThreeBytes) {
+    // Mask out the lower 3 bytes from the uint64_t value
+    uint32_t maskedLowerThreeBytes = (uint32_t)(lowerThreeBytes & 0xFFFFFF);
+
+    // Clear the lower 3 bytes of the original uint32_t value
+    originalValue &= 0xFF000000;
+
+    // Combine the two values
+    originalValue |= maskedLowerThreeBytes;
+
+    return originalValue;
+}
+
+```
