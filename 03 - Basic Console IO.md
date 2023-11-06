@@ -66,4 +66,18 @@ uint32_t insertThreeBytes(uint32_t originalValue, uint64_t lowerThreeBytes) {
     return originalValue;
 }
 
+#include <stdint.h>
+
+uint32_t convertToBigEndian(uint32_t value) {
+    // Mask out and shift the bytes to big-endian order
+    uint32_t byte0 = (value & 0x0000FF) << 16; // Lowest byte to highest position
+    uint32_t byte1 = (value & 0x00FF00);       // Middle byte stays
+    uint32_t byte2 = (value & 0xFF0000) >> 16; // Highest byte to lowest position
+
+    // Combine the bytes back into a single uint32_t
+    uint32_t bigEndianValue = byte0 | byte1 | byte2;
+
+    return bigEndianValue;
+}
+
 ```
