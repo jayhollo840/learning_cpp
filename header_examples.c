@@ -13,7 +13,7 @@
         #define BYTE_ORDER __BYTE_ORDER
     #endif
 #elif defined(__QNXNTO__)
-    #include <sys/neutrino.h>
+    #include <sys/byteorder.h>
     #ifndef LITTLE_ENDIAN
         #define LITTLE_ENDIAN _LITTLE_ENDIAN
     #endif
