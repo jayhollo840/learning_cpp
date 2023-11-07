@@ -46,3 +46,9 @@ CounterStruct myCounter;
     myCounter.threeByteCounter[1] = 0;
     myCounter.threeByteCounter[2] = 0;
 #endif
+
+// Directly place the last three bytes of largeValue into myStruct.bytes
+myStruct.bytes[0] = (largeValue >> 16) & 0xFF;  // Get the 3rd last byte
+myStruct.bytes[1] = (largeValue >> 8) & 0xFF;   // Get the 2nd last byte
+myStruct.bytes[2] = largeValue & 0xFF;          // Get the last byte
+
